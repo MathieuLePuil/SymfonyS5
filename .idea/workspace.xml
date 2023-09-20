@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add DemoController">
-      <change afterPath="$PROJECT_DIR$/templates/product/product.html.twig" afterDir="false" />
+    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add ProductController">
+      <change afterPath="$PROJECT_DIR$/src/Service/SlugService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/demo-pages" />
+        <entry key="$PROJECT_DIR$" value="feature/product-pages" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -174,13 +174,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/product-pages",
+    "git-widget-placeholder": "feature/slug-text",
     "last_opened_file_path": "/Users/mathieulepuil/Desktop/COURS/Semestre5/SymfonyS5/templates/product",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -205,7 +206,7 @@
       <updated>1695063244309</updated>
       <workItem from="1695063251331" duration="1770000" />
       <workItem from="1695125153771" duration="7000" />
-      <workItem from="1695211202013" duration="1643000" />
+      <workItem from="1695211202013" duration="4206000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add DemoController">
       <option name="closed" value="true" />
@@ -215,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695212302699</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: add ProductController">
+      <option name="closed" value="true" />
+      <created>1695213029148</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695213029148</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +232,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add DemoController" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add DemoController" />
+    <MESSAGE value="feat: add ProductController" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add ProductController" />
   </component>
 </project>
