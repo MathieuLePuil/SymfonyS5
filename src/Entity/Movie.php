@@ -44,6 +44,7 @@ class Movie
     #[ORM\Column(type: Types::INTEGER)]
     #[Assert\GreaterThanOrEqual(30)]
     #[Assert\NotBlank(message: 'La durée est obligatoire')]
+    #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     private ?int $duration = null;
 
     #[ORM\ManyToOne(inversedBy: 'movies')]
