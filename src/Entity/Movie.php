@@ -10,7 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
 
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
 #[ApiResource(
@@ -23,24 +24,27 @@ class Movie
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 100)]
     #[Groups(['movie:read'])]
     #[Assert\NotBlank(message: 'Le titre est obligatoire')]
     #[Assert\Length(min: 2, max: 100, maxMessage: 'Le titre doit avoir moins de 100 caractères')]
+    #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     private ?string $title = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'La description est obligatoire')]
-    #[Assert\Length(min: 2, max: 100, maxMessage: 'La description doit avoir moins de 100 caractères')]
+    #[Assert\Length(min: 2, max: 255, maxMessage: 'La description doit avoir moins de 255 caractères')]
+    #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     #[Assert\NotBlank(message: 'La date de sortie est obligatoire')]
     private ?\DateTimeInterface $releaseDate = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::INTEGER)]
+    #[Assert\GreaterThanOrEqual(30)]
     #[Assert\NotBlank(message: 'La durée est obligatoire')]
-    private ?string $duration = null;
+    private ?int $duration = null;
 
     #[ORM\ManyToOne(inversedBy: 'movies')]
     #[Groups(['movie:read'])]
@@ -96,12 +100,12 @@ class Movie
         return $this;
     }
 
-    public function getDuration(): ?string
+    public function getDuration(): ?int
     {
         return $this->duration;
     }
 
-    public function setDuration(string $duration): static
+    public function setDuration(int $duration): static
     {
         $this->duration = $duration;
 

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add bilan_partie1.md with request for to add new actor">
+    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add Assert on Movie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Movie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Movie.php" afterDir="false" />
     </list>
@@ -218,7 +218,7 @@
       <workItem from="1695643875179" duration="381000" />
       <workItem from="1695648537377" duration="571000" />
       <workItem from="1695708343992" duration="3170000" />
-      <workItem from="1695735716105" duration="712000" />
+      <workItem from="1695735716105" duration="1693000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add DemoController">
       <option name="closed" value="true" />
@@ -284,7 +284,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695711518430</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat: add Assert on Movie">
+      <option name="closed" value="true" />
+      <created>1695738154745</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1695738154745</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,6 +318,7 @@
     <MESSAGE value="feat: add dataFixtures for nationality" />
     <MESSAGE value="feat: show Nationality in Api Platform and add groups" />
     <MESSAGE value="feat: add bilan_partie1.md with request for to add new actor" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add bilan_partie1.md with request for to add new actor" />
+    <MESSAGE value="feat: add Assert on Movie" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add Assert on Movie" />
   </component>
 </project>
