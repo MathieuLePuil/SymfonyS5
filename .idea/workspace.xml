@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add SlugController with service">
-      <change afterPath="$PROJECT_DIR$/src/Event/MovieSavedEvent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Event/MovieSavedEventSubscriber.php" afterDir="false" />
+    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: show Nationality in Api Platform and add groups">
+      <change afterPath="$PROJECT_DIR$/bilan_partie1.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/product-pages" />
+        <entry key="$PROJECT_DIR$" value="feature/event-movie" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,6 +28,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/usr/local/Cellar/php/8.2.3/bin/php">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
@@ -160,6 +159,11 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
       <path value="$PROJECT_DIR$/vendor/twig/intl-extra" />
+      <path value="$PROJECT_DIR$/vendor/api-platform/core" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/negotiation" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -176,8 +180,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/event-movie&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mathieulepuil/Desktop/COURS/Semestre5/SymfonyS5/templates/product&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/api-plateform&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mathieulepuil/Desktop/COURS/Semestre5/SymfonyS5&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -189,6 +193,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/templates/product" />
     </key>
   </component>
@@ -212,6 +217,7 @@
       <workItem from="1695391721442" duration="479000" />
       <workItem from="1695643875179" duration="381000" />
       <workItem from="1695648537377" duration="571000" />
+      <workItem from="1695708343992" duration="2635000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add DemoController">
       <option name="closed" value="true" />
@@ -229,15 +235,71 @@
       <option name="project" value="LOCAL" />
       <updated>1695213029148</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: add Actor and Category entity and install api plateform">
+      <option name="closed" value="true" />
+      <created>1695708644688</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1695708644688</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: create Nationality entity">
+      <option name="closed" value="true" />
+      <created>1695708788400</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695708788400</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: create relation between nationlity and actor">
+      <option name="closed" value="true" />
+      <created>1695709260106</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1695709260106</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: add dataFixtures for nationality">
+      <option name="closed" value="true" />
+      <created>1695710055746</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1695710055746</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: show Nationality in Api Platform and add groups">
+      <option name="closed" value="true" />
+      <created>1695710845071</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1695710845071</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add DemoController" />
     <MESSAGE value="feat: add ProductController" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add ProductController" />
+    <MESSAGE value="feat: add Actor and Category entity and install api plateform" />
+    <MESSAGE value="feat: create Nationality entity" />
+    <MESSAGE value="feat: create relation between nationlity and actor" />
+    <MESSAGE value="feat: add dataFixtures for nationality" />
+    <MESSAGE value="feat: show Nationality in Api Platform and add groups" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: show Nationality in Api Platform and add groups" />
   </component>
 </project>
