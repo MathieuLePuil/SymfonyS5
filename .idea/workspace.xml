@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: create Nationality entity">
+    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: create relation between nationlity and actor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Actor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Actor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Nationality.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Nationality.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +28,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/usr/local/Cellar/php/8.2.3/bin/php">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
@@ -217,7 +217,7 @@
       <workItem from="1695391721442" duration="479000" />
       <workItem from="1695643875179" duration="381000" />
       <workItem from="1695648537377" duration="571000" />
-      <workItem from="1695708343992" duration="810000" />
+      <workItem from="1695708343992" duration="1623000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add DemoController">
       <option name="closed" value="true" />
@@ -251,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695708788400</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: create relation between nationlity and actor">
+      <option name="closed" value="true" />
+      <created>1695709260106</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1695709260106</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +281,7 @@
     <MESSAGE value="feat: add ProductController" />
     <MESSAGE value="feat: add Actor and Category entity and install api plateform" />
     <MESSAGE value="feat: create Nationality entity" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: create Nationality entity" />
+    <MESSAGE value="feat: create relation between nationlity and actor" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: create relation between nationlity and actor" />
   </component>
 </project>

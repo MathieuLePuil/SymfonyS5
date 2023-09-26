@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Actor;
 use App\Entity\Category;
 use App\Entity\Movie;
+use App\Entity\Nationality;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -12,6 +13,13 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+        foreach (range(1, 10) as $j) {
+            $nationality = new Nationality();
+            $nationality->setNationality('Nationality '.$j);
+            $manager->persist($nationality);
+            $this->addReference('nationality_'.$j, $nationality);
+        }
+
         foreach (range(1, 5) as $i) {
             $category = new Category();
             $category->setName('Category '.$i);
@@ -25,6 +33,7 @@ class AppFixtures extends Fixture
             $actor = new Actor();
             $actor->setFirstName('Actor '.$i);
             $actor->setLastName('Actor '.$i);
+            $actor->setNationality($this->getReference('nationality_' . rand(1, 10)));
             $manager->persist($actor);
             $this->addReference('actor_'.$i, $actor);
         }
@@ -42,6 +51,7 @@ class AppFixtures extends Fixture
             $movie->addActor($this->getReference('actor_'.rand(1, 10)));
             $manager->persist($movie);
         }
+
 
         $manager->flush();
     }
