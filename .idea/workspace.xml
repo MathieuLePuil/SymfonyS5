@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add Event on Movie entity">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SymfonyS5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SymfonyS5.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Movie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Movie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-    </list>
+    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add Actor and Category entity and install api plateform" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,7 +213,7 @@
       <workItem from="1695391721442" duration="479000" />
       <workItem from="1695643875179" duration="381000" />
       <workItem from="1695648537377" duration="571000" />
-      <workItem from="1695708343992" duration="165000" />
+      <workItem from="1695708343992" duration="349000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add DemoController">
       <option name="closed" value="true" />
@@ -241,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695213029148</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: add Actor and Category entity and install api plateform">
+      <option name="closed" value="true" />
+      <created>1695708644688</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1695708644688</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +259,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add DemoController" />
     <MESSAGE value="feat: add ProductController" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add ProductController" />
+    <MESSAGE value="feat: add Actor and Category entity and install api plateform" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add Actor and Category entity and install api plateform" />
   </component>
 </project>
