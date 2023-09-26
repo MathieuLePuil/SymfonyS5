@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add Actor and Category entity and install api plateform" />
+    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: create Nationality entity">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Actor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Actor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Nationality.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Nationality.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -213,7 +217,7 @@
       <workItem from="1695391721442" duration="479000" />
       <workItem from="1695643875179" duration="381000" />
       <workItem from="1695648537377" duration="571000" />
-      <workItem from="1695708343992" duration="349000" />
+      <workItem from="1695708343992" duration="810000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add DemoController">
       <option name="closed" value="true" />
@@ -239,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695708644688</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: create Nationality entity">
+      <option name="closed" value="true" />
+      <created>1695708788400</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695708788400</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +272,7 @@
     <MESSAGE value="feat: add DemoController" />
     <MESSAGE value="feat: add ProductController" />
     <MESSAGE value="feat: add Actor and Category entity and install api plateform" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add Actor and Category entity and install api plateform" />
+    <MESSAGE value="feat: create Nationality entity" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: create Nationality entity" />
   </component>
 </project>
