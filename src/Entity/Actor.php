@@ -7,9 +7,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ActorRepository::class)]
-#[ApiResource()]
+#[ApiResource(
+    normalizationContext: ['groups' => ['actor:read']],
+)]
 class Actor
 {
     #[ORM\Id]
@@ -18,16 +21,20 @@ class Actor
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['actor:read'])]
     private ?string $firstName = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['actor:read'])]
     private ?string $lastName = null;
 
     #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'actor')]
+    #[Groups(['actor:read'])]
     private Collection $movies;
 
     #[ORM\ManyToOne(inversedBy: 'actors')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['actor:read'])]
     private ?Nationality $nationality = null;
 
     public function __construct()
