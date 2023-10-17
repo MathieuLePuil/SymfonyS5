@@ -6,6 +6,7 @@ use App\Entity\Actor;
 use App\Entity\Category;
 use App\Entity\Movie;
 use App\Entity\Nationality;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -51,6 +52,10 @@ class AppFixtures extends Fixture
             $movie->addActor($this->getReference('actor_'.rand(1, 10)));
             $manager->persist($movie);
         }
+
+        // create datafixtures 10 users and one admin
+
+        $user = new User();
 
 
         $manager->flush();

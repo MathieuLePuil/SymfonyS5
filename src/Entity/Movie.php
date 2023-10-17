@@ -35,16 +35,19 @@ class Movie
     #[Assert\NotBlank(message: 'La description est obligatoire')]
     #[Assert\Length(min: 2, max: 255, maxMessage: 'La description doit avoir moins de 255 caractères')]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
+    #[Groups(['movie:read'])]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     #[Assert\NotBlank(message: 'La date de sortie est obligatoire')]
+    #[Groups(['movie:read'])]
     private ?\DateTimeInterface $releaseDate = null;
 
     #[ORM\Column(type: Types::INTEGER)]
     #[Assert\GreaterThanOrEqual(30)]
     #[Assert\NotBlank(message: 'La durée est obligatoire')]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
+    #[Groups(['movie:read'])]
     private ?int $duration = null;
 
     #[ORM\ManyToOne(inversedBy: 'movies')]
@@ -53,6 +56,7 @@ class Movie
     private ?Category $category = null;
 
     #[ORM\ManyToMany(targetEntity: Actor::class, inversedBy: 'movies')]
+    #[Groups(['movie:read'])]
     private Collection $actor;
 
     public function __construct()
