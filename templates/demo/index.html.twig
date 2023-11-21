@@ -1,7 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DemoController!{% endblock %}
+{% block title %}Demo - Date{% endblock %}
 
 {% block body %}
-    <h1>{{ 'now'|format_datetime('full', locale='fr', timezone ='Europe/Paris') }}</h1>
+
+    <h1>{{ 'now'|format_datetime('full', 'short') }}</h1>
+
+{% endblock %}
+{% block footer %}
+
+
 {% endblock %}

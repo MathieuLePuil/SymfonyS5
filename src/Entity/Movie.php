@@ -2,62 +2,83 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\BooleanFilter;
+use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Put;
 use App\Repository\MovieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Metadata\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
-use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
-use ApiPlatform\Metadata\ApiFilter;
 
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
 #[ApiResource(
     normalizationContext: ['groups' => ['movie:read']],
+    description: 'A movie with actors.',
+    operations: [
+        new Get(uriTemplate: '/movie/{id}'),
+        new GetCollection(),
+        new Post(),
+        new Put(),
+        new Patch(),
+        new Delete(),
+    ]
 )]
+#[ApiFilter(BooleanFilter::class, properties: ['online'])]
+#[ApiFilter(OrderFilter::class, properties: ['title'], arguments: ['orderParameterName' => 'order'])]
 class Movie
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['movie:read', 'actor:read'])]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
-    #[Groups(['movie:read'])]
-    #[Assert\NotBlank(message: 'Le titre est obligatoire')]
-    #[Assert\Length(min: 2, max: 100, maxMessage: 'Le titre doit avoir moins de 100 caractères')]
+    #[ORM\Column(length: 255)]
+    #[Groups(['movie:read', 'actor:read'])]
+    #[Assert\NotBlank(message: 'Le titre est obligatoire.')]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: 'La description est obligatoire')]
-    #[Assert\Length(min: 2, max: 255, maxMessage: 'La description doit avoir moins de 255 caractères')]
-    #[ApiFilter(SearchFilter::class, strategy: 'partial')]
+    #[ORM\Column(type: Types::TEXT)]
     #[Groups(['movie:read'])]
+    #[Assert\NotBlank(message: 'La description est obligatoire.')]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    #[Assert\NotBlank(message: 'La date de sortie est obligatoire')]
     #[Groups(['movie:read'])]
+    #[Assert\Date(message: 'La date de sortie doit être au format YYYY-MM-DD.')]
     private ?\DateTimeInterface $releaseDate = null;
 
-    #[ORM\Column(type: Types::INTEGER)]
-    #[Assert\GreaterThanOrEqual(30)]
-    #[Assert\NotBlank(message: 'La durée est obligatoire')]
-    #[ApiFilter(SearchFilter::class, strategy: 'partial')]
+    #[ORM\Column(length: 50)]
     #[Groups(['movie:read'])]
-    private ?int $duration = null;
+    #[Assert\NotBlank(message: 'La durée est obligatoire.')]
+    private ?string $duration = null;
 
     #[ORM\ManyToOne(inversedBy: 'movies')]
     #[Groups(['movie:read'])]
-    #[Assert\NotBlank(message: 'La catégorie est obligatoire')]
     private ?Category $category = null;
 
     #[ORM\ManyToMany(targetEntity: Actor::class, inversedBy: 'movies')]
     #[Groups(['movie:read'])]
     private Collection $actor;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['movie:read'])]
+    private ?string $image = null;
+
+    #[ORM\Column]
+    private ?bool $online = null;
 
     public function __construct()
     {
@@ -105,12 +126,12 @@ class Movie
         return $this;
     }
 
-    public function getDuration(): ?int
+    public function getDuration(): ?string
     {
         return $this->duration;
     }
 
-    public function setDuration(int $duration): static
+    public function setDuration(string $duration): static
     {
         $this->duration = $duration;
 
@@ -149,6 +170,30 @@ class Movie
     public function removeActor(Actor $actor): static
     {
         $this->actor->removeElement($actor);
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): static
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function isOnline(): ?bool
+    {
+        return $this->online;
+    }
+
+    public function setOnline(bool $online): static
+    {
+        $this->online = $online;
 
         return $this;
     }
