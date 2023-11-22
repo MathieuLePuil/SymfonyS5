@@ -6,9 +6,7 @@
 parameters:
 
 services:
-    App\Event\:
-        resource: '../src/Event/'
-        tags: ['doctrine.orm.entity_listener']
+    App\EventSubscriber\PostSavedEventSubscriber: ~
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.

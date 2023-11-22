@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add DemoController" />
+    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="fix: send uncommit files">
+      <change beforePath="$PROJECT_DIR$/.idea/SymfonyS5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SymfonyS5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +73,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
       <path value="$PROJECT_DIR$/vendor/symfony/validator" />
@@ -80,16 +85,13 @@
       <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
@@ -98,7 +100,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
-      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/doctrine-messenger" />
       <path value="$PROJECT_DIR$/vendor/symfony/clock" />
       <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
@@ -145,7 +146,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/asset" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />
@@ -163,6 +163,47 @@
       <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/vendor/monolog 2/monolog" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/migrations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/persistence" />
+      <path value="$PROJECT_DIR$/vendor/phpstan 2/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor 2/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor 2/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor 2/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/egulias 2/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/api-platform 2/core" />
+      <path value="$PROJECT_DIR$/vendor/masterminds 2/html5" />
+      <path value="$PROJECT_DIR$/vendor/phar-io 2/manifest" />
+      <path value="$PROJECT_DIR$/vendor/phar-io 2/version" />
+      <path value="$PROJECT_DIR$/vendor/namshi 2/jose" />
+      <path value="$PROJECT_DIR$/vendor/willdurand 2/negotiation" />
+      <path value="$PROJECT_DIR$/vendor/nikic 2/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/myclabs 2/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/twig 2/extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twig 2/twig" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/phpunit 2/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit 2/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci 2/jwt" />
+      <path value="$PROJECT_DIR$/vendor/lexik 2/jwt-authentication-bundle" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -174,22 +215,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "develop",
-    "last_opened_file_path": "/Users/mathieulepuil/Desktop/COURS/Semestre5/SymfonyS5",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/filter-online&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mathieulp/Desktop/COURS/Semestre5/MoviesList/SymfonyS5&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -227,6 +268,15 @@
       <workItem from="1696434550396" duration="36000" />
       <workItem from="1696435845197" duration="7000" />
       <workItem from="1697544425708" duration="33000" />
+      <workItem from="1697785565019" duration="42000" />
+      <workItem from="1700550661129" duration="3090000" />
+      <workItem from="1700553891883" duration="661000" />
+      <workItem from="1700557317053" duration="340000" />
+      <workItem from="1700557946675" duration="38000" />
+      <workItem from="1700558010045" duration="3084000" />
+      <workItem from="1700588378849" duration="12000" />
+      <workItem from="1700639788140" duration="31000" />
+      <workItem from="1700639824143" duration="359000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add DemoController">
       <option name="closed" value="true" />
@@ -316,7 +366,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695739421585</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix: send uncommit files">
+      <option name="closed" value="true" />
+      <created>1697609858580</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1697609858580</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,6 +403,7 @@
     <MESSAGE value="feat: add Assert on Movie" />
     <MESSAGE value="feat: add Filter on title and description for Movie" />
     <MESSAGE value="feat: add Filter on duration for Movie" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add Filter on duration for Movie" />
+    <MESSAGE value="fix: send uncommit files" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: send uncommit files" />
   </component>
 </project>
