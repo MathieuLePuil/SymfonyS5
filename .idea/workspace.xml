@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add DemoController">
-      <change afterPath="$PROJECT_DIR$/templates/product/product.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="fix: send uncommit files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,12 +12,14 @@
   </component>
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/demo-pages" />
+        <entry key="$PROJECT_DIR$" value="feature/jwt" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -28,6 +27,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/usr/local/Cellar/php/8.2.3/bin/php">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
@@ -67,7 +67,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
       <path value="$PROJECT_DIR$/vendor/symfony/validator" />
@@ -80,16 +79,13 @@
       <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
@@ -98,7 +94,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
-      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/doctrine-messenger" />
       <path value="$PROJECT_DIR$/vendor/symfony/clock" />
       <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
@@ -145,7 +140,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/asset" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />
@@ -158,6 +152,52 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
       <path value="$PROJECT_DIR$/vendor/twig/intl-extra" />
+      <path value="$PROJECT_DIR$/vendor/api-platform/core" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/negotiation" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/vendor/monolog 2/monolog" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/migrations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/persistence" />
+      <path value="$PROJECT_DIR$/vendor/phpstan 2/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine 2/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor 2/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor 2/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor 2/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/egulias 2/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/api-platform 2/core" />
+      <path value="$PROJECT_DIR$/vendor/masterminds 2/html5" />
+      <path value="$PROJECT_DIR$/vendor/phar-io 2/manifest" />
+      <path value="$PROJECT_DIR$/vendor/phar-io 2/version" />
+      <path value="$PROJECT_DIR$/vendor/namshi 2/jose" />
+      <path value="$PROJECT_DIR$/vendor/willdurand 2/negotiation" />
+      <path value="$PROJECT_DIR$/vendor/nikic 2/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/myclabs 2/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/twig 2/extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twig 2/twig" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/phpunit 2/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit 2/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci 2/jwt" />
+      <path value="$PROJECT_DIR$/vendor/lexik 2/jwt-authentication-bundle" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -174,18 +214,20 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/product-pages",
-    "last_opened_file_path": "/Users/mathieulepuil/Desktop/COURS/Semestre5/SymfonyS5/templates/product",
+    "git-widget-placeholder": "feature/snyk",
+    "last_opened_file_path": "/Users/mathieulp/Desktop/COURS/Semestre5/MoviesList/SymfonyS5",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/templates/product" />
     </key>
   </component>
@@ -206,6 +248,29 @@
       <workItem from="1695063251331" duration="1770000" />
       <workItem from="1695125153771" duration="7000" />
       <workItem from="1695211202013" duration="1643000" />
+      <workItem from="1695391721442" duration="479000" />
+      <workItem from="1695643875179" duration="381000" />
+      <workItem from="1695648537377" duration="571000" />
+      <workItem from="1695708343992" duration="3170000" />
+      <workItem from="1695735716105" duration="2111000" />
+      <workItem from="1695892393682" duration="114000" />
+      <workItem from="1695894989923" duration="1054000" />
+      <workItem from="1695902823775" duration="13000" />
+      <workItem from="1695968078604" duration="45000" />
+      <workItem from="1695968138571" duration="2424000" />
+      <workItem from="1695973862357" duration="708000" />
+      <workItem from="1696434550396" duration="36000" />
+      <workItem from="1696435845197" duration="7000" />
+      <workItem from="1697544425708" duration="33000" />
+      <workItem from="1697785565019" duration="42000" />
+      <workItem from="1700550661129" duration="3090000" />
+      <workItem from="1700553891883" duration="661000" />
+      <workItem from="1700557317053" duration="340000" />
+      <workItem from="1700557946675" duration="38000" />
+      <workItem from="1700558010045" duration="3084000" />
+      <workItem from="1700588378849" duration="12000" />
+      <workItem from="1700639788140" duration="31000" />
+      <workItem from="1700639824143" duration="802000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add DemoController">
       <option name="closed" value="true" />
@@ -215,14 +280,132 @@
       <option name="project" value="LOCAL" />
       <updated>1695212302699</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: add ProductController">
+      <option name="closed" value="true" />
+      <created>1695213029148</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695213029148</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: add Actor and Category entity and install api plateform">
+      <option name="closed" value="true" />
+      <created>1695708644688</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1695708644688</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: create Nationality entity">
+      <option name="closed" value="true" />
+      <created>1695708788400</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695708788400</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: create relation between nationlity and actor">
+      <option name="closed" value="true" />
+      <created>1695709260106</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1695709260106</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: add dataFixtures for nationality">
+      <option name="closed" value="true" />
+      <created>1695710055746</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1695710055746</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: show Nationality in Api Platform and add groups">
+      <option name="closed" value="true" />
+      <created>1695710845071</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1695710845071</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: add bilan_partie1.md with request for to add new actor">
+      <option name="closed" value="true" />
+      <created>1695711518430</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1695711518430</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: add Assert on Movie">
+      <option name="closed" value="true" />
+      <created>1695738154745</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1695738154745</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: add Filter on title and description for Movie">
+      <option name="closed" value="true" />
+      <created>1695739042031</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1695739042031</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: add Filter on duration for Movie">
+      <option name="closed" value="true" />
+      <created>1695739421585</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1695739421585</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix: send uncommit files">
+      <option name="closed" value="true" />
+      <created>1697609858580</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1697609858580</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: send uncommit files">
+      <option name="closed" value="true" />
+      <created>1700640594277</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1700640594277</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add DemoController" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add DemoController" />
+    <MESSAGE value="feat: add ProductController" />
+    <MESSAGE value="feat: add Actor and Category entity and install api plateform" />
+    <MESSAGE value="feat: create Nationality entity" />
+    <MESSAGE value="feat: create relation between nationlity and actor" />
+    <MESSAGE value="feat: add dataFixtures for nationality" />
+    <MESSAGE value="feat: show Nationality in Api Platform and add groups" />
+    <MESSAGE value="feat: add bilan_partie1.md with request for to add new actor" />
+    <MESSAGE value="feat: add Assert on Movie" />
+    <MESSAGE value="feat: add Filter on title and description for Movie" />
+    <MESSAGE value="feat: add Filter on duration for Movie" />
+    <MESSAGE value="fix: send uncommit files" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: send uncommit files" />
   </component>
 </project>

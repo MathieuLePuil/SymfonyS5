@@ -1,0 +1,14 @@
+api_platform:
+    graphql:
+        graphiql:
+            enabled: true #set to false to disable the GraphiQL interface
+        graphql_playground:
+            enabled: true #set to false to disable the GraphQL Playground interface
+    title: Hello API Platform
+    version: 1.0.0
+    # Good defaults for REST APIs
+    defaults:
+        stateless: true
+        cache_headers:
+            vary: ['Content-Type', 'Authorization', 'Origin']
+        pagination_items_per_page: 10
