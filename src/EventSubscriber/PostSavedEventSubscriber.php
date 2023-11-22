@@ -9,7 +9,6 @@ use Doctrine\Persistence\Event\LifecycleEventArgs;
 
 class PostSavedEventSubscriber implements EventSubscriber
 {
-
     /**
      * @inheritDoc
      */

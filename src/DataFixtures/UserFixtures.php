@@ -11,8 +11,7 @@ class UserFixtures extends Fixture
 {
     public function __construct(
         protected UserPasswordHasherInterface $passwordHasherInterface
-    )
-    {
+    ) {
     }
 
     public function getOrder(): int
@@ -24,8 +23,8 @@ class UserFixtures extends Fixture
     {
         for ($i = 1; $i <= 5; ++$i) {
             $user = new User();
-            $user->setUsername('user'.$i);
-            $user->setPassword($this->passwordHasherInterface->hashPassword($user, 'test'.$i));
+            $user->setUsername('user' . $i);
+            $user->setPassword($this->passwordHasherInterface->hashPassword($user, 'test' . $i));
 
             $manager->persist($user);
         }
