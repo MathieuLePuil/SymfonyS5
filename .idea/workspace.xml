@@ -4,26 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="fix: send uncommit files">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add phpstan">
       <change beforePath="$PROJECT_DIR$/.idea/SymfonyS5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SymfonyS5.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.override.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ActorFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/ActorFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/CategoryFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/CategoryFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/MovieFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/MovieFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/NationaliteFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/NationaliteFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Event/PostSavedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Event/PostSavedEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventSubscriber/PostSavedEventSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventSubscriber/PostSavedEventSubscriber.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +171,9 @@
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/vendor/pdepend/pdepend" />
+      <path value="$PROJECT_DIR$/vendor/phpmd/phpmd" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -362,7 +352,31 @@
       <option name="project" value="LOCAL" />
       <updated>1700640594277</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="feat: PSR2">
+      <option name="closed" value="true" />
+      <created>1700644063586</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1700644063586</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat: PSR2">
+      <option name="closed" value="true" />
+      <created>1700644120505</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1700644120505</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: add phpstan">
+      <option name="closed" value="true" />
+      <created>1700644179348</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1700644179348</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,6 +406,8 @@
     <MESSAGE value="feat: add Filter on title and description for Movie" />
     <MESSAGE value="feat: add Filter on duration for Movie" />
     <MESSAGE value="fix: send uncommit files" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: send uncommit files" />
+    <MESSAGE value="feat: PSR2" />
+    <MESSAGE value="feat: add phpstan" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add phpstan" />
   </component>
 </project>
