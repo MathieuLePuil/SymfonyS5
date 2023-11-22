@@ -21,6 +21,4 @@ class SecurityController extends AbstractController
     public function loginCheck(#[CurrentUser] $user = null): Response
     {
     }
-
-
 }

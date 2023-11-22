@@ -25,15 +25,15 @@ class PostController extends AbstractController
     }
 
     #[Route('/new', name: 'app_post_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, EventDispatcherInterface $dispatcher): Response
+    public function new(Request $request, EntityManagerInterface $em, EventDispatcherInterface $dispatcher): Response
     {
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($post);
-            $entityManager->flush();
+            $em->persist($post);
+            $em->flush();
 
             // Créez une nouvelle instance de l'événement
             $event = new PostSavedEvent($post);

@@ -26,7 +26,7 @@ class NationaliteFixtures extends Fixture implements OrderedFixtureInterface
             $nationalite = new Nationalite();
             $nationalite->setName((isset($nationalities[$i])) ? $nationalities[$i] : $faker->country);
             $manager->persist($nationalite);
-            $this->addReference('nationalite_'.($i+1), $nationalite);
+            $this->addReference('nationalite_' . ($i + 1), $nationalite);
         }
 
         $manager->flush();

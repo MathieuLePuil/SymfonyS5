@@ -27,7 +27,7 @@ class CategoryFixtures extends Fixture implements OrderedFixtureInterface
             $category = new Category();
             $category->setName((isset($categories[$i])) ? $categories[$i] : $faker->words(2, true));
             $manager->persist($category);
-            $this->addReference('category_'.($i+1), $category);
+            $this->addReference('category_' . ($i + 1), $category);
         }
 
         $manager->flush();
