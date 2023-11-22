@@ -9,11 +9,18 @@ use Symfony\Component\Security\Http\Attribute\CurrentUser;
 
 class SecurityController extends AbstractController
 {
-    #[Route(path: '/login', name: 'app_login', methods: ['GET', 'POST'])]
-    public function login(#[CurrentUser] $user=null): Response
+    #[Route('/login', name: 'app_login', methods: ['POST', 'GET'])]
+    public function login(#[CurrentUser] $user = null): Response
     {
         return $this->json([
             'user' => $user ? $user->getId() : null,
         ]);
     }
+
+    #[Route('/api/login_check', name: 'app_login_check')]
+    public function loginCheck(#[CurrentUser] $user = null): Response
+    {
+    }
+
+
 }

@@ -3,24 +3,26 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Repository\NationalityRepository;
+use App\Repository\NationaliteRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ORM\Entity(repositoryClass: NationalityRepository::class)]
-#[ApiResource()]
-class Nationality
+#[ORM\Entity(repositoryClass: NationaliteRepository::class)]
+#[ApiResource]
+class Nationalite
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $nationality = null;
+    #[Groups(['actor:read'])]
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'nationality', targetEntity: Actor::class)]
+    #[ORM\OneToMany(mappedBy: 'nationalite', targetEntity: Actor::class)]
     private Collection $actors;
 
     public function __construct()
@@ -33,14 +35,14 @@ class Nationality
         return $this->id;
     }
 
-    public function getNationality(): ?string
+    public function getName(): ?string
     {
-        return $this->nationality;
+        return $this->name;
     }
 
-    public function setNationality(string $nationality): static
+    public function setName(?string $name): static
     {
-        $this->nationality = $nationality;
+        $this->name = $name;
 
         return $this;
     }
@@ -57,7 +59,7 @@ class Nationality
     {
         if (!$this->actors->contains($actor)) {
             $this->actors->add($actor);
-            $actor->setNationality($this);
+            $actor->setNationalite($this);
         }
 
         return $this;
@@ -67,8 +69,8 @@ class Nationality
     {
         if ($this->actors->removeElement($actor)) {
             // set the owning side to null (unless already changed)
-            if ($actor->getNationality() === $this) {
-                $actor->setNationality(null);
+            if ($actor->getNationalite() === $this) {
+                $actor->setNationalite(null);
             }
         }
 

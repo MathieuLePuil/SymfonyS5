@@ -2,30 +2,53 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
 use App\Repository\ActorRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Metadata\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ActorRepository::class)]
 #[ApiResource(
     normalizationContext: ['groups' => ['actor:read']],
+    description: 'An actor with his nationatity.',
+    operations: [
+        new Get(uriTemplate: '/actor/{id}'),
+        new GetCollection(),
+        new Post(),
+        new Put(),
+        new Patch(),
+        new Delete(),
+    ]
 )]
 class Actor
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['actor:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['actor:read'])]
+    #[Groups(['movie:read', 'actor:read'])]
+    #[Assert\NotBlank(message: 'Le prénom est obligatoire.')]
+    #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     private ?string $firstName = null;
 
+    #[Groups(['movie:read', 'actor:read'])]
     #[ORM\Column(length: 255)]
-    #[Groups(['actor:read'])]
+    #[Assert\NotBlank(message: 'Le nom est obligatoire.')]
+    #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     private ?string $lastName = null;
 
     #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'actor')]
@@ -33,9 +56,9 @@ class Actor
     private Collection $movies;
 
     #[ORM\ManyToOne(inversedBy: 'actors')]
-    #[ORM\JoinColumn(nullable: false)]
     #[Groups(['actor:read'])]
-    private ?Nationality $nationality = null;
+    #[Assert\NotNull(message: 'La nationalité est obligatoire.')]
+    private ?Nationalite $nationalite = null;
 
     public function __construct()
     {
@@ -98,14 +121,14 @@ class Actor
         return $this;
     }
 
-    public function getNationality(): ?Nationality
+    public function getNationalite(): ?Nationalite
     {
-        return $this->nationality;
+        return $this->nationalite;
     }
 
-    public function setNationality(?Nationality $nationality): static
+    public function setNationalite(?Nationalite $nationalite): static
     {
-        $this->nationality = $nationality;
+        $this->nationalite = $nationalite;
 
         return $this;
     }
