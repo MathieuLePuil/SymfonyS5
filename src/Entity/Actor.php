@@ -20,7 +20,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ActorRepository::class)]
 #[ApiResource(
-    normalizationContext: ['groups' => ['actor:read']],
     description: 'An actor with his nationatity.',
     operations: [
         new Get(uriTemplate: '/actor/{id}'),
@@ -29,7 +28,8 @@ use Symfony\Component\Validator\Constraints as Assert;
         new Put(),
         new Patch(),
         new Delete(),
-    ]
+    ],
+    normalizationContext: ['groups' => ['actor:read']]
 )]
 class Actor
 {

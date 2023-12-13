@@ -18,7 +18,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ApiResource(
-    normalizationContext: ['groups' => ['category:read']],
     description: 'A category of movies.',
     operations: [
         new Get(uriTemplate: '/categories/{id}'),
@@ -27,7 +26,8 @@ use Symfony\Component\Validator\Constraints as Assert;
         new Put(),
         new Patch(),
         new Delete(),
-    ]
+    ],
+    normalizationContext: ['groups' => ['category:read']]
 )]
 class Category
 {
@@ -44,7 +44,7 @@ class Category
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Movie::class)]
     #[Groups(['category:read'])]
-    #[Assert\Related(entity: Movie::class)]
+//    #[Assert\Related(entity: Movie::class)]
     private Collection $movies;
 
     public function __construct()
