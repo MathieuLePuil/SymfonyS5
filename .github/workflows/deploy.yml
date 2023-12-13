@@ -22,6 +22,8 @@ jobs:
           cd SymfonyS5
           git pull
 
+          rm .env.test
+
           echo "DATABASE_URL=mysql://${{ secrets.BASEUSER }}:${{ secrets.BASEPASS }}@localhost:3306/${{ secrets.BASENAME }}?serverVersion=8.0.32&charset=utf8mb4" > .env.local
 
           composer install
