@@ -23,7 +23,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
 #[ApiResource(
-    normalizationContext: ['groups' => ['movie:read']],
     description: 'A movie with actors.',
     operations: [
         new Get(uriTemplate: '/movie/{id}'),
@@ -32,10 +31,12 @@ use Symfony\Component\Validator\Constraints as Assert;
         new Put(),
         new Patch(),
         new Delete(),
-    ]
+    ],
+    normalizationContext: ['groups' => ['movie:read']]
 )]
 #[ApiFilter(BooleanFilter::class, properties: ['online'])]
 #[ApiFilter(OrderFilter::class, properties: ['title'], arguments: ['orderParameterName' => 'order'])]
+#[ApiFilter(SearchFilter::class, properties: ['id' => 'exact', 'name' => 'partial'])]
 class Movie
 {
     #[ORM\Id]
@@ -55,10 +56,9 @@ class Movie
     #[Assert\NotBlank(message: 'La description est obligatoire.')]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::TEXT)]
     #[Groups(['movie:read'])]
-    #[Assert\Date(message: 'La date de sortie doit être au format YYYY-MM-DD.')]
-    private ?\DateTimeInterface $releaseDate = null;
+    private ?string $releaseDate = null;
 
     #[ORM\Column(length: 50)]
     #[Groups(['movie:read'])]
@@ -114,9 +114,11 @@ class Movie
         return $this;
     }
 
-    public function getReleaseDate(): ?\DateTimeInterface
+    public function getReleaseDate(string $releaseDate): static
     {
-        return $this->releaseDate;
+        $this->description = $releaseDate;
+
+        return $this;
     }
 
     public function setReleaseDate(\DateTimeInterface $releaseDate): static
