@@ -61,6 +61,10 @@ class Actor
     #[Assert\Type('string')]
     private ?Nationalite $nationalite = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Type('string')]
+    private ?string $reward = null;
+
     public function __construct()
     {
         $this->movies = new ArrayCollection();
@@ -130,6 +134,18 @@ class Actor
     public function setNationalite(?Nationalite $nationalite): static
     {
         $this->nationalite = $nationalite;
+
+        return $this;
+    }
+
+    public function getReward(): ?string
+    {
+        return $this->reward;
+    }
+
+    public function setReward(?string $reward): static
+    {
+        $this->reward = $reward;
 
         return $this;
     }

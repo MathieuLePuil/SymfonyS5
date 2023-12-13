@@ -14,6 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ApiResource(
@@ -38,10 +39,12 @@ class Category
 
     #[ORM\Column(length: 255)]
     #[Groups(['movie:read', 'category:read'])]
+    #[Assert\Type('string')]
     private ?string $name = null;
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Movie::class)]
     #[Groups(['category:read'])]
+    #[Assert\Related(entity: Movie::class)]
     private Collection $movies;
 
     public function __construct()
