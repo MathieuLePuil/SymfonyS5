@@ -54,15 +54,19 @@ class Movie
     #[ORM\Column(type: Types::TEXT)]
     #[Groups(['movie:read'])]
     #[Assert\NotBlank(message: 'La description est obligatoire.')]
+    #[Assert\Type('string')]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::TEXT)]
     #[Groups(['movie:read'])]
+    #[Assert\NotBlank(message: 'La date de sortie est obligatoire.')]
+    #[Assert\Date(message: 'La date de sortie doit être au format YYYY-MM-DD.')]
     private ?string $releaseDate = null;
 
     #[ORM\Column(length: 50)]
     #[Groups(['movie:read'])]
     #[Assert\NotBlank(message: 'La durée est obligatoire.')]
+    #[Assert\Type('string')]
     private ?string $duration = null;
 
     #[ORM\ManyToOne(inversedBy: 'movies')]

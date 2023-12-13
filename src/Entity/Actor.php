@@ -58,6 +58,7 @@ class Actor
     #[ORM\ManyToOne(inversedBy: 'actors')]
     #[Groups(['actor:read'])]
     #[Assert\NotNull(message: 'La nationalité est obligatoire.')]
+    #[Assert\Type('string')]
     private ?Nationalite $nationalite = null;
 
     public function __construct()
