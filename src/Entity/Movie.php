@@ -54,15 +54,19 @@ class Movie
     #[ORM\Column(type: Types::TEXT)]
     #[Groups(['movie:read'])]
     #[Assert\NotBlank(message: 'La description est obligatoire.')]
+    #[Assert\Type('string')]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::TEXT)]
     #[Groups(['movie:read'])]
+    #[Assert\NotBlank(message: 'La date de sortie est obligatoire.')]
+    #[Assert\Date(message: 'La date de sortie doit être au format YYYY-MM-DD.')]
     private ?string $releaseDate = null;
 
     #[ORM\Column(length: 50)]
     #[Groups(['movie:read'])]
     #[Assert\NotBlank(message: 'La durée est obligatoire.')]
+    #[Assert\Type('string')]
     private ?string $duration = null;
 
     #[ORM\ManyToOne(inversedBy: 'movies')]
@@ -79,6 +83,30 @@ class Movie
 
     #[ORM\Column]
     private ?bool $online = null;
+
+    #[ORM\Column(nullable: true)]
+    #[Assert\Range(
+        min: 0,
+        max: 10,
+    )]
+    private ?float $note = null;
+
+    #[ORM\Column(nullable: true)]
+    #[Assert\Type('integer')]
+    private ?int $entries = null;
+
+    #[ORM\Column(nullable: true)]
+    #[Assert\Type('integer')]
+    private ?int $budget = null;
+
+    #[ORM\Column(length: 255)]
+    #[Assert\Type('string')]
+    #[Assert\NotBlank(message: 'Le réalisateur est obligatoire.')]
+    private ?string $director = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Type('string')]
+    private ?string $website = null;
 
     public function __construct()
     {
@@ -196,6 +224,66 @@ class Movie
     public function setOnline(bool $online): static
     {
         $this->online = $online;
+
+        return $this;
+    }
+
+    public function getNote(): ?float
+    {
+        return $this->note;
+    }
+
+    public function setNote(?float $note): static
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    public function getEntries(): ?int
+    {
+        return $this->entries;
+    }
+
+    public function setEntries(?int $entries): static
+    {
+        $this->entries = $entries;
+
+        return $this;
+    }
+
+    public function getBudget(): ?int
+    {
+        return $this->budget;
+    }
+
+    public function setBudget(?int $budget): static
+    {
+        $this->budget = $budget;
+
+        return $this;
+    }
+
+    public function getDirector(): ?string
+    {
+        return $this->director;
+    }
+
+    public function setDirector(string $director): static
+    {
+        $this->director = $director;
+
+        return $this;
+    }
+
+    public function getWebsite(): ?string
+    {
+        return $this->website;
+    }
+
+    public function setWebsite(?string $website): static
+    {
+        $this->website = $website;
 
         return $this;
     }
