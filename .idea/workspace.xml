@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Serializer/MediaObjectNormalizer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SymfonyS5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SymfonyS5.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
+    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add me on api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Movie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Movie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CreateMediaObjectActionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CreateMediaObjectActionController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +260,11 @@
       <workItem from="1706079900024" duration="1539000" />
       <workItem from="1706101931024" duration="1834000" />
       <workItem from="1706253081555" duration="6000" />
-      <workItem from="1706533364906" duration="238000" />
+      <workItem from="1706533364906" duration="883000" />
+      <workItem from="1706544542955" duration="8000" />
+      <workItem from="1706560810936" duration="602000" />
+      <workItem from="1706684570781" duration="1877000" />
+      <workItem from="1707553949983" duration="4898000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add DemoController">
       <option name="closed" value="true" />
@@ -423,7 +418,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700648861207</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="feat: add me on api">
+      <option name="closed" value="true" />
+      <created>1706534487482</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1706534487482</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,6 +460,7 @@
     <MESSAGE value="feat: add phpstan" />
     <MESSAGE value="feat: add test" />
     <MESSAGE value="fix: delete ApiTest 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: delete ApiTest 2" />
+    <MESSAGE value="feat: add me on api" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add me on api" />
   </component>
 </project>
