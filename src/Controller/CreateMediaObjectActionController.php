@@ -32,7 +32,7 @@ final class CreateMediaObjectActionController extends AbstractController
         }
 
         $mediaObject->file = $uploadedFile;
-        $mediaObject->filePath = '/uploads/'.$newFilename;
+        $mediaObject->filePath = $newFilename;
 
         $em->persist($mediaObject);
         $em->flush();

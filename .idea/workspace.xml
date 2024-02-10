@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add me on api">
+    <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: add upload file to admin with api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/65c747dfea7c7.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CreateMediaObjectActionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CreateMediaObjectActionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/MovieFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/MovieFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/MediaObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/MediaObject.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Movie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Movie.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +267,7 @@
       <workItem from="1706544542955" duration="8000" />
       <workItem from="1706560810936" duration="602000" />
       <workItem from="1706684570781" duration="1877000" />
-      <workItem from="1707553949983" duration="4898000" />
+      <workItem from="1707553949983" duration="8407000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add DemoController">
       <option name="closed" value="true" />
@@ -426,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706534487482</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="feat: add upload file to admin with api">
+      <option name="closed" value="true" />
+      <created>1707558960814</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1707558960814</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,6 +472,7 @@
     <MESSAGE value="feat: add test" />
     <MESSAGE value="fix: delete ApiTest 2" />
     <MESSAGE value="feat: add me on api" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add me on api" />
+    <MESSAGE value="feat: add upload file to admin with api" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add upload file to admin with api" />
   </component>
 </project>

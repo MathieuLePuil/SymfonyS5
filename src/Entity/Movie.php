@@ -64,6 +64,8 @@ class Movie
      */
     private ?\DateTimeInterface $releaseDate;
 
+
+
     #[ORM\Column(length: 50)]
     #[Groups(['movie:read'])]
     #[Assert\NotBlank(message: 'La durée est obligatoire.')]
@@ -77,23 +79,12 @@ class Movie
     #[Groups(['movie:read'])]
     private Collection $actor;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['movie:read'])]
-    private ?string $image = null;
-
     #[ORM\Column]
     private ?bool $online = null;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $fileName;
-
-    /**
-     * @Vich\UploadableField(mapping="movie", fileNameProperty="fileName")
-     * @var File|null
-     */
-    private $file;
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[Groups(['movie:read', 'actor:read'])]
+    private ?MediaObject $image = null;
 
     public function __construct()
     {
@@ -168,32 +159,6 @@ class Movie
     }
 
     /**
-     * @return mixed
-     */
-    public function getFileName()
-    {
-        return $this->fileName;
-    }
-
-    /**
-     * @param mixed $fileName
-     */
-    public function setFileName($fileName): void
-    {
-        $this->fileName = $fileName;
-    }
-
-    public function getFile(): ?File
-    {
-        return $this->file;
-    }
-
-    public function setFile(?File $file): void
-    {
-        $this->file = $file;
-    }
-
-    /**
      * @return Collection<int, Actor>
      */
     public function getActor(): Collection
@@ -217,12 +182,18 @@ class Movie
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage(): ?MediaObject
     {
         return $this->image;
     }
 
-    public function setImage(?string $image): static
+    #[Groups(['movie:read', 'actor:read'])]
+    public function getImageUrl(): ?string
+    {
+        return $this->image?->getContentUrl();
+    }
+
+    public function setImage(?MediaObject $image): static
     {
         $this->image = $image;
 

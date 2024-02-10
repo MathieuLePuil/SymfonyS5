@@ -49,6 +49,10 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 )]
 class MediaObject
 {
+    public function getContentUrl(): ?string
+    {
+        return $this->filePath ? '/uploads/' . $this->filePath : null;
+    }
     #[ORM\Id, ORM\Column, ORM\GeneratedValue]
     private ?int $id = null;
 
