@@ -57,6 +57,7 @@ class Movie
     #[ORM\Column(type: Types::TEXT)]
     #[Groups(['movie:read'])]
     #[Assert\NotBlank(message: 'La description est obligatoire.')]
+    #[Assert\Type('string')]
     private ?string $description = null;
 
     /**
@@ -64,11 +65,10 @@ class Movie
      */
     private ?\DateTimeInterface $releaseDate;
 
-
-
     #[ORM\Column(length: 50)]
     #[Groups(['movie:read'])]
     #[Assert\NotBlank(message: 'La durée est obligatoire.')]
+    #[Assert\Type('string')]
     private ?string $duration = null;
 
     #[ORM\ManyToOne(inversedBy: 'movies')]
@@ -81,6 +81,7 @@ class Movie
 
     #[ORM\Column]
     private ?bool $online = null;
+
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[Groups(['movie:read', 'actor:read'])]
@@ -208,6 +209,66 @@ class Movie
     public function setOnline(bool $online): static
     {
         $this->online = $online;
+
+        return $this;
+    }
+
+    public function getNote(): ?float
+    {
+        return $this->note;
+    }
+
+    public function setNote(?float $note): static
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    public function getEntries(): ?int
+    {
+        return $this->entries;
+    }
+
+    public function setEntries(?int $entries): static
+    {
+        $this->entries = $entries;
+
+        return $this;
+    }
+
+    public function getBudget(): ?int
+    {
+        return $this->budget;
+    }
+
+    public function setBudget(?int $budget): static
+    {
+        $this->budget = $budget;
+
+        return $this;
+    }
+
+    public function getDirector(): ?string
+    {
+        return $this->director;
+    }
+
+    public function setDirector(string $director): static
+    {
+        $this->director = $director;
+
+        return $this;
+    }
+
+    public function getWebsite(): ?string
+    {
+        return $this->website;
+    }
+
+    public function setWebsite(?string $website): static
+    {
+        $this->website = $website;
 
         return $this;
     }

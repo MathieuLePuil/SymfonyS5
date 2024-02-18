@@ -20,7 +20,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ActorRepository::class)]
 #[ApiResource(
-    normalizationContext: ['groups' => ['actor:read']],
     description: 'An actor with his nationatity.',
     operations: [
         new Get(uriTemplate: '/actor/{id}'),
@@ -29,7 +28,8 @@ use Symfony\Component\Validator\Constraints as Assert;
         new Put(),
         new Patch(),
         new Delete(),
-    ]
+    ],
+    normalizationContext: ['groups' => ['actor:read']]
 )]
 class Actor
 {
@@ -58,7 +58,12 @@ class Actor
     #[ORM\ManyToOne(inversedBy: 'actors')]
     #[Groups(['actor:read'])]
     #[Assert\NotNull(message: 'La nationalité est obligatoire.')]
+    #[Assert\Type('string')]
     private ?Nationalite $nationalite = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Type('string')]
+    private ?string $reward = null;
 
     public function __construct()
     {
@@ -129,6 +134,18 @@ class Actor
     public function setNationalite(?Nationalite $nationalite): static
     {
         $this->nationalite = $nationalite;
+
+        return $this;
+    }
+
+    public function getReward(): ?string
+    {
+        return $this->reward;
+    }
+
+    public function setReward(?string $reward): static
+    {
+        $this->reward = $reward;
 
         return $this;
     }
