@@ -21,6 +21,38 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\Type('string')]
     private ?string $username = null;
 
+    #[ORM\Column(length: 180, unique: true)]
+    #[Assert\Type('string')]
+    private ?string $email = null;
+
+    #[ORM\Column(length: 180, unique: true)]
+    #[Assert\Type('string')]
+    private ?string $firstname = null;
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(?string $firstname): void
+    {
+        $this->firstname = $firstname;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(?string $lastname): void
+    {
+        $this->lastname = $lastname;
+    }
+
+    #[ORM\Column(length: 180, unique: true)]
+    #[Assert\Type('string')]
+    private ?string $lastname = null;
+
     #[ORM\Column]
     private array $roles = [];
 
@@ -98,5 +130,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): void
+    {
+        $this->email = $email;
     }
 }

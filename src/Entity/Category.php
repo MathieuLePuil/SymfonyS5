@@ -44,7 +44,6 @@ class Category
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Movie::class)]
     #[Groups(['category:read'])]
-//    #[Assert\Related(entity: Movie::class)]
     private Collection $movies;
 
     public function __construct()

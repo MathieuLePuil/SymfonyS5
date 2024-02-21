@@ -4,43 +4,44 @@ namespace App\DataFixtures;
 
 use App\Entity\Movie;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
-class MovieFixtures extends Fixture implements OrderedFixtureInterface
+class MovieFixtures extends Fixture implements DependentFixtureInterface
 {
-    // définir l'ordre de chargement des fixtures
-    public function getOrder(): int
-    {
-        return 4;
-    }
-
     public function load(ObjectManager $manager): void
     {
-        $faker = Factory::create();
+        $faker = Factory::create('fr_FR');
+        $faker->addProvider(new \Xylis\FakerCinema\Provider\Movie($faker));
+        $faker->addProvider(new \Xylis\FakerCinema\Provider\Person($faker));
 
-        for ($i = 1; $i < 30; ++$i) {
-            $movie = new Movie();
-            $movie->setTitle($faker->sentence(3));
-            $movie->setDescription($faker->paragraph);
-            $movie->setReleaseDate($faker->dateTimeThisCentury);
-            $movie->setDuration($faker->numberBetween(60, 200));
-            $movie->setOnline($faker->boolean(80));
-            $movie->setCategory($this->getReference('category_' . rand(1, 4)));
-
-            $actors = [];
-            foreach (range(1, rand(2, 6)) as $j) {
-                $actor = $this->getReference('actor_' . rand(1, 9));
-                if (!in_array($actor, $actors)) {
-                    $actors[] = $actor;
-                    $movie->addActor($actor);
-                }
+        for ($i = 0; $i < 30; $i++) {
+            $movie = (new Movie())
+                ->setTitle($faker->unique()->movie)
+                ->setDescription($faker->text(200))
+                ->setDuration(rand(100, 250))
+                ->setReleaseDate($faker->dateTimeBetween(
+                    "-50 years",
+                ))
+                ->setDirector($faker->director)
+                ->setEntries(rand(5000, 10000000))
+                ->setBudget(rand(100000, 100000000))
+                ->setCategory($this->getReference('category-' . rand(1, 18)));
+            for ($j = 1; $j <= rand(2, 28); $j++) {
+                $movie->addActor($this->getReference('actor-' . rand(1, 30)));
             }
-
             $manager->persist($movie);
         }
 
         $manager->flush();
+    }
+
+    public function getDependencies(): array
+    {
+        return [
+            CategoryFixtures::class,
+            ActorFixtures::class,
+        ];
     }
 }

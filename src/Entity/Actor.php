@@ -51,19 +51,13 @@ class Actor
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     private ?string $lastName = null;
 
+    #[ORM\Column(length: 255)]
+    #[Groups(['movie:read', 'actor:read'])]
+    private ?string $nationality = null;
+
     #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'actor')]
     #[Groups(['actor:read'])]
     private Collection $movies;
-
-    #[ORM\ManyToOne(inversedBy: 'actors')]
-    #[Groups(['actor:read'])]
-    #[Assert\NotNull(message: 'La nationalité est obligatoire.')]
-    #[Assert\Type('string')]
-    private ?Nationalite $nationalite = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    #[Assert\Type('string')]
-    private ?string $reward = null;
 
     public function __construct()
     {
@@ -126,27 +120,13 @@ class Actor
         return $this;
     }
 
-    public function getNationalite(): ?Nationalite
+    public function getNationality(): ?string
     {
-        return $this->nationalite;
+        return $this->nationality;
     }
 
-    public function setNationalite(?Nationalite $nationalite): static
+    public function setNationality(?string $nationality): void
     {
-        $this->nationalite = $nationalite;
-
-        return $this;
-    }
-
-    public function getReward(): ?string
-    {
-        return $this->reward;
-    }
-
-    public function setReward(?string $reward): static
-    {
-        $this->reward = $reward;
-
-        return $this;
+        $this->nationality = $nationality;
     }
 }

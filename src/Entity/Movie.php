@@ -71,6 +71,21 @@ class Movie
     #[Assert\Type('string')]
     private ?string $duration = null;
 
+    #[ORM\Column(type: Types::INTEGER)]
+    #[Groups(['movie:read'])]
+    #[Assert\Type('integer')]
+    private ?int $entries = null;
+
+    #[ORM\Column(type: Types::INTEGER)]
+    #[Groups(['movie:read'])]
+    #[Assert\Type('integer')]
+    private ?int $budget = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    #[Groups(['movie:read'])]
+    #[Assert\Type('string')]
+    private ?string $director = null;
+
     #[ORM\ManyToOne(inversedBy: 'movies')]
     #[Groups(['movie:read'])]
     private ?Category $category = null;
@@ -80,8 +95,7 @@ class Movie
     private Collection $actor;
 
     #[ORM\Column]
-    private ?bool $online = null;
-
+    private ?bool $online = true;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[Groups(['movie:read', 'actor:read'])]
@@ -257,18 +271,6 @@ class Movie
     public function setDirector(string $director): static
     {
         $this->director = $director;
-
-        return $this;
-    }
-
-    public function getWebsite(): ?string
-    {
-        return $this->website;
-    }
-
-    public function setWebsite(?string $website): static
-    {
-        $this->website = $website;
 
         return $this;
     }
