@@ -55,8 +55,7 @@ class Actor
     #[Groups(['movie:read', 'actor:read'])]
     private ?string $nationality = null;
 
-    #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'actor')]
-    #[Groups(['actor:read'])]
+    #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'actors')]
     private Collection $movies;
 
     public function __construct()
@@ -93,6 +92,16 @@ class Actor
         return $this;
     }
 
+    public function getNationality(): ?string
+    {
+        return $this->nationality;
+    }
+
+    public function setNationality(?string $nationality): void
+    {
+        $this->nationality = $nationality;
+    }
+
     /**
      * @return Collection<int, Movie>
      */
@@ -118,15 +127,5 @@ class Actor
         }
 
         return $this;
-    }
-
-    public function getNationality(): ?string
-    {
-        return $this->nationality;
-    }
-
-    public function setNationality(?string $nationality): void
-    {
-        $this->nationality = $nationality;
     }
 }

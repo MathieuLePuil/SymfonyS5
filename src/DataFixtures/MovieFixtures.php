@@ -21,9 +21,6 @@ class MovieFixtures extends Fixture implements DependentFixtureInterface
                 ->setTitle($faker->unique()->movie)
                 ->setDescription($faker->text(200))
                 ->setDuration(rand(100, 250))
-                ->setReleaseDate($faker->dateTimeBetween(
-                    "-50 years",
-                ))
                 ->setDirector($faker->director)
                 ->setEntries(rand(5000, 10000000))
                 ->setBudget(rand(100000, 100000000))

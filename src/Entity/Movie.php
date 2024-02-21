@@ -60,16 +60,11 @@ class Movie
     #[Assert\Type('string')]
     private ?string $description = null;
 
-    /**
-     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
-     */
-    private ?\DateTimeInterface $releaseDate;
-
     #[ORM\Column(length: 50)]
     #[Groups(['movie:read'])]
     #[Assert\NotBlank(message: 'La durée est obligatoire.')]
-    #[Assert\Type('string')]
-    private ?string $duration = null;
+    #[Assert\Type('integer')]
+    private ?int $duration = null;
 
     #[ORM\Column(type: Types::INTEGER)]
     #[Groups(['movie:read'])]
@@ -90,10 +85,6 @@ class Movie
     #[Groups(['movie:read'])]
     private ?Category $category = null;
 
-    #[ORM\ManyToMany(targetEntity: Actor::class, inversedBy: 'movies')]
-    #[Groups(['movie:read'])]
-    private Collection $actor;
-
     #[ORM\Column]
     private ?bool $online = true;
 
@@ -101,9 +92,12 @@ class Movie
     #[Groups(['movie:read', 'actor:read'])]
     private ?MediaObject $image = null;
 
+    #[ORM\ManyToMany(targetEntity: Actor::class, inversedBy: 'movies')]
+    private Collection $actors;
+
     public function __construct()
     {
-        $this->actor = new ArrayCollection();
+        $this->actors = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -135,20 +129,6 @@ class Movie
         return $this;
     }
 
-    public function getReleaseDate(string $releaseDate): static
-    {
-        $this->description = $releaseDate;
-
-        return $this;
-    }
-
-    public function setReleaseDate(\DateTimeInterface $releaseDate): static
-    {
-        $this->releaseDate = $releaseDate;
-
-        return $this;
-    }
-
     public function getDuration(): ?string
     {
         return $this->duration;
@@ -169,30 +149,6 @@ class Movie
     public function setCategory(?Category $category): static
     {
         $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Actor>
-     */
-    public function getActor(): Collection
-    {
-        return $this->actor;
-    }
-
-    public function addActor(Actor $actor): static
-    {
-        if (!$this->actor->contains($actor)) {
-            $this->actor->add($actor);
-        }
-
-        return $this;
-    }
-
-    public function removeActor(Actor $actor): static
-    {
-        $this->actor->removeElement($actor);
 
         return $this;
     }
@@ -227,17 +183,6 @@ class Movie
         return $this;
     }
 
-    public function getNote(): ?float
-    {
-        return $this->note;
-    }
-
-    public function setNote(?float $note): static
-    {
-        $this->note = $note;
-
-        return $this;
-    }
 
     public function getEntries(): ?int
     {
@@ -271,6 +216,30 @@ class Movie
     public function setDirector(string $director): static
     {
         $this->director = $director;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Actor>
+     */
+    public function getActors(): Collection
+    {
+        return $this->actors;
+    }
+
+    public function addActor(Actor $actor): static
+    {
+        if (!$this->actors->contains($actor)) {
+            $this->actors->add($actor);
+        }
+
+        return $this;
+    }
+
+    public function removeActor(Actor $actor): static
+    {
+        $this->actors->removeElement($actor);
 
         return $this;
     }
