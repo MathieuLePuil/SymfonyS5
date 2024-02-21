@@ -66,21 +66,6 @@ class Movie
     #[Assert\Type('integer')]
     private ?int $duration = null;
 
-    #[ORM\Column(type: Types::INTEGER)]
-    #[Groups(['movie:read'])]
-    #[Assert\Type('integer')]
-    private ?int $entries = null;
-
-    #[ORM\Column(type: Types::INTEGER)]
-    #[Groups(['movie:read'])]
-    #[Assert\Type('integer')]
-    private ?int $budget = null;
-
-    #[ORM\Column(type: Types::TEXT)]
-    #[Groups(['movie:read'])]
-    #[Assert\Type('string')]
-    private ?string $director = null;
-
     #[ORM\ManyToOne(inversedBy: 'movies')]
     #[Groups(['movie:read'])]
     private ?Category $category = null;
@@ -92,12 +77,22 @@ class Movie
     #[Groups(['movie:read', 'actor:read'])]
     private ?MediaObject $image = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $director = null;
+
+    #[ORM\Column]
+    private ?int $entries = null;
+
+    #[ORM\Column]
+    private ?int $budget = null;
+
     #[ORM\ManyToMany(targetEntity: Actor::class, inversedBy: 'movies')]
-    private Collection $actors;
+    #[Groups(['movie:read', 'actor:id'])]
+    private Collection $actor;
 
     public function __construct()
     {
-        $this->actors = new ArrayCollection();
+        $this->actor = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -183,31 +178,6 @@ class Movie
         return $this;
     }
 
-
-    public function getEntries(): ?int
-    {
-        return $this->entries;
-    }
-
-    public function setEntries(?int $entries): static
-    {
-        $this->entries = $entries;
-
-        return $this;
-    }
-
-    public function getBudget(): ?int
-    {
-        return $this->budget;
-    }
-
-    public function setBudget(?int $budget): static
-    {
-        $this->budget = $budget;
-
-        return $this;
-    }
-
     public function getDirector(): ?string
     {
         return $this->director;
@@ -220,18 +190,42 @@ class Movie
         return $this;
     }
 
+    public function getEntries(): ?int
+    {
+        return $this->entries;
+    }
+
+    public function setEntries(int $entries): static
+    {
+        $this->entries = $entries;
+
+        return $this;
+    }
+
+    public function getBudget(): ?int
+    {
+        return $this->budget;
+    }
+
+    public function setBudget(int $budget): static
+    {
+        $this->budget = $budget;
+
+        return $this;
+    }
+
     /**
      * @return Collection<int, Actor>
      */
-    public function getActors(): Collection
+    public function getActor(): Collection
     {
-        return $this->actors;
+        return $this->actor;
     }
 
     public function addActor(Actor $actor): static
     {
-        if (!$this->actors->contains($actor)) {
-            $this->actors->add($actor);
+        if (!$this->actor->contains($actor)) {
+            $this->actor->add($actor);
         }
 
         return $this;
@@ -239,7 +233,7 @@ class Movie
 
     public function removeActor(Actor $actor): static
     {
-        $this->actors->removeElement($actor);
+        $this->actor->removeElement($actor);
 
         return $this;
     }

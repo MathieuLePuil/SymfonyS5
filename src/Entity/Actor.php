@@ -36,26 +36,26 @@ class Actor
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['actor:read'])]
+    #[Groups(['actor:id'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['movie:read', 'actor:read'])]
+    #[Groups(['actor:read', 'actor:id'])]
     #[Assert\NotBlank(message: 'Le prénom est obligatoire.')]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
-    private ?string $firstName = null;
+    private ?string $firstname = null;
 
-    #[Groups(['movie:read', 'actor:read'])]
+    #[Groups(['actor:read', 'actor:id'])]
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Le nom est obligatoire.')]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
-    private ?string $lastName = null;
+    private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['movie:read', 'actor:read'])]
+    #[Groups(['actor:read', 'actor:id'])]
     private ?string $nationality = null;
 
-    #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'actors')]
+    #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'actor')]
     private Collection $movies;
 
     public function __construct()
@@ -68,26 +68,26 @@ class Actor
         return $this->id;
     }
 
-    public function getFirstName(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->firstName;
+        return $this->firstname;
     }
 
-    public function setFirstName(string $firstName): static
+    public function setFirstname(string $firstname): static
     {
-        $this->firstName = $firstName;
+        $this->firstname = $firstname;
 
         return $this;
     }
 
-    public function getLastName(): ?string
+    public function getLastname(): ?string
     {
-        return $this->lastName;
+        return $this->lastname;
     }
 
-    public function setLastName(string $lastName): static
+    public function setLastname(string $lastname): static
     {
-        $this->lastName = $lastName;
+        $this->lastname = $lastname;
 
         return $this;
     }
@@ -97,9 +97,11 @@ class Actor
         return $this->nationality;
     }
 
-    public function setNationality(?string $nationality): void
+    public function setNationality(string $nationality): static
     {
         $this->nationality = $nationality;
+
+        return $this;
     }
 
     /**
