@@ -36,23 +36,23 @@ class Actor
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['actor:id'])]
+    #[Groups(['actor:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['actor:read', 'actor:id'])]
+    #[Groups(['actor:read'])]
     #[Assert\NotBlank(message: 'Le prénom est obligatoire.')]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     private ?string $firstname = null;
 
-    #[Groups(['actor:read', 'actor:id'])]
+    #[Groups(['actor:read'])]
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Le nom est obligatoire.')]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['actor:read', 'actor:id'])]
+    #[Groups(['actor:read'])]
     private ?string $nationality = null;
 
     #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'actor')]

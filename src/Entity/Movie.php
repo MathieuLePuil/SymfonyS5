@@ -87,7 +87,7 @@ class Movie
     private ?int $budget = null;
 
     #[ORM\ManyToMany(targetEntity: Actor::class, inversedBy: 'movies')]
-    #[Groups(['movie:read', 'actor:id'])]
+    #[Groups(['movie:read'])]
     private Collection $actor;
 
     public function __construct()
