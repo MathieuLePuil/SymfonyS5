@@ -39,13 +39,13 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 )]
 #[ApiFilter(BooleanFilter::class, properties: ['online'])]
 #[ApiFilter(OrderFilter::class, properties: ['title'], arguments: ['orderParameterName' => 'order'])]
-#[ApiFilter(SearchFilter::class, properties: ['id' => 'exact', 'name' => 'partial'])]
+#[ApiFilter(SearchFilter::class, properties: ['id' => 'exact', 'name' => 'partial', 'category' => 'exact'])]
 class Movie
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['movie:read', 'actor:read'])]
+    #[Groups(['movie:read', 'actor:read', 'actor:read:light', 'actor:read:id'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -60,32 +60,35 @@ class Movie
     #[Assert\Type('string')]
     private ?string $description = null;
 
-    /**
-     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
-     */
-    private ?\DateTimeInterface $releaseDate;
-
     #[ORM\Column(length: 50)]
     #[Groups(['movie:read'])]
     #[Assert\NotBlank(message: 'La durée est obligatoire.')]
-    #[Assert\Type('string')]
-    private ?string $duration = null;
+    #[Assert\Type('integer')]
+    private ?int $duration = null;
 
     #[ORM\ManyToOne(inversedBy: 'movies')]
     #[Groups(['movie:read'])]
     private ?Category $category = null;
 
-    #[ORM\ManyToMany(targetEntity: Actor::class, inversedBy: 'movies')]
-    #[Groups(['movie:read'])]
-    private Collection $actor;
-
     #[ORM\Column]
-    private ?bool $online = null;
-
+    private ?bool $online = true;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[Groups(['movie:read', 'actor:read'])]
     private ?MediaObject $image = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $director = null;
+
+    #[ORM\Column]
+    private ?int $entries = null;
+
+    #[ORM\Column]
+    private ?int $budget = null;
+
+    #[ORM\ManyToMany(targetEntity: Actor::class, inversedBy: 'movies')]
+    #[Groups(['movie:read'])]
+    private Collection $actor;
 
     public function __construct()
     {
@@ -121,20 +124,6 @@ class Movie
         return $this;
     }
 
-    public function getReleaseDate(string $releaseDate): static
-    {
-        $this->description = $releaseDate;
-
-        return $this;
-    }
-
-    public function setReleaseDate(\DateTimeInterface $releaseDate): static
-    {
-        $this->releaseDate = $releaseDate;
-
-        return $this;
-    }
-
     public function getDuration(): ?string
     {
         return $this->duration;
@@ -155,30 +144,6 @@ class Movie
     public function setCategory(?Category $category): static
     {
         $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Actor>
-     */
-    public function getActor(): Collection
-    {
-        return $this->actor;
-    }
-
-    public function addActor(Actor $actor): static
-    {
-        if (!$this->actor->contains($actor)) {
-            $this->actor->add($actor);
-        }
-
-        return $this;
-    }
-
-    public function removeActor(Actor $actor): static
-    {
-        $this->actor->removeElement($actor);
 
         return $this;
     }
@@ -213,42 +178,6 @@ class Movie
         return $this;
     }
 
-    public function getNote(): ?float
-    {
-        return $this->note;
-    }
-
-    public function setNote(?float $note): static
-    {
-        $this->note = $note;
-
-        return $this;
-    }
-
-    public function getEntries(): ?int
-    {
-        return $this->entries;
-    }
-
-    public function setEntries(?int $entries): static
-    {
-        $this->entries = $entries;
-
-        return $this;
-    }
-
-    public function getBudget(): ?int
-    {
-        return $this->budget;
-    }
-
-    public function setBudget(?int $budget): static
-    {
-        $this->budget = $budget;
-
-        return $this;
-    }
-
     public function getDirector(): ?string
     {
         return $this->director;
@@ -261,14 +190,50 @@ class Movie
         return $this;
     }
 
-    public function getWebsite(): ?string
+    public function getEntries(): ?int
     {
-        return $this->website;
+        return $this->entries;
     }
 
-    public function setWebsite(?string $website): static
+    public function setEntries(int $entries): static
     {
-        $this->website = $website;
+        $this->entries = $entries;
+
+        return $this;
+    }
+
+    public function getBudget(): ?int
+    {
+        return $this->budget;
+    }
+
+    public function setBudget(int $budget): static
+    {
+        $this->budget = $budget;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Actor>
+     */
+    public function getActor(): Collection
+    {
+        return $this->actor;
+    }
+
+    public function addActor(Actor $actor): static
+    {
+        if (!$this->actor->contains($actor)) {
+            $this->actor->add($actor);
+        }
+
+        return $this;
+    }
+
+    public function removeActor(Actor $actor): static
+    {
+        $this->actor->removeElement($actor);
 
         return $this;
     }

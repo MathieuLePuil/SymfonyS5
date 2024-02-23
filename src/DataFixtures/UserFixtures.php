@@ -9,33 +9,24 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserFixtures extends Fixture
 {
-    public function __construct(
-        protected UserPasswordHasherInterface $passwordHasherInterface
-    ) {
-    }
+    private UserPasswordHasherInterface $passwordHasherInterface;
 
-    public function getOrder(): int
+    public function __construct(UserPasswordHasherInterface $passwordEncoder)
     {
-        return 5;
+        $this->passwordHasherInterface = $passwordEncoder;
     }
 
     public function load(ObjectManager $manager): void
     {
-        for ($i = 1; $i <= 5; ++$i) {
-            $user = new User();
-            $user->setUsername('user' . $i);
-            $user->setPassword($this->passwordHasherInterface->hashPassword($user, 'test' . $i));
+        $user = new User();
+        $user->setEmail('mail@mail.com');
+        $user->setUsername('johndoe');
+        $user->setPassword($this->passwordHasherInterface->hashPassword($user, 'password'));
+        $user->setFirstname('John');
+        $user->setLastname('Doe');
+        $user->setRoles(['ROLE_USER']);
 
-            $manager->persist($user);
-        }
-
-        $userAdmin = new User();
-        $userAdmin->setUsername('admin');
-        $userAdmin->setPassword($this->passwordHasherInterface->hashPassword($user, 'test'));
-        $userAdmin->setRoles(['ROLE_ADMIN']);
-
-        $manager->persist($userAdmin);
-
+        $manager->persist($user);
         $manager->flush();
     }
 }
