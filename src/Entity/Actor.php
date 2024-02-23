@@ -11,6 +11,7 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
+use App\Controller\GetAllActorsController;
 use App\Repository\ActorRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -19,6 +20,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ActorRepository::class)]
+#[ApiFilter(SearchFilter::class, properties: ['id' => 'exact', 'firstname' => 'partial', 'lastname' => 'partial'])]
 #[ApiResource(
     description: 'An actor with his nationatity.',
     operations: [
@@ -28,6 +30,7 @@ use Symfony\Component\Validator\Constraints as Assert;
         new Put(),
         new Patch(),
         new Delete(),
+        new GetCollection(uriTemplate: '/actors/all', controller: GetAllActorsController::class, openapiContext: ['summary' => 'Get all actors without pagination'], paginationEnabled: false)
     ],
     normalizationContext: ['groups' => ['actor:read']]
 )]
@@ -56,6 +59,7 @@ class Actor
     private ?string $nationality = null;
 
     #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'actor')]
+    #[Groups(['actor:read', 'actor:read:light', 'actor:read:id'])]
     private Collection $movies;
 
     public function __construct()

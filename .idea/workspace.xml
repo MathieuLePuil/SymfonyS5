@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="75553cfe-b417-47ee-84ff-d4a68a86c555" name="Changes" comment="feat: update entities for post movie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Actor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Category.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Movie.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/User.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Actor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Actor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Movie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Movie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +199,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;feature/update-entity&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mathieulp/Desktop/COURS/Semestre5/SymfonyS5&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mathieulp/Desktop/DEV/SymfonyS5&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -270,6 +276,8 @@
       <workItem from="1707553949983" duration="8407000" />
       <workItem from="1708362025984" duration="17000" />
       <workItem from="1708522531704" duration="4176000" />
+      <workItem from="1708633236206" duration="72000" />
+      <workItem from="1708633318430" duration="3157000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add DemoController">
       <option name="closed" value="true" />
