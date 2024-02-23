@@ -11,6 +11,7 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
+use App\Controller\GetAllActorsController;
 use App\Repository\ActorRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -19,8 +20,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ActorRepository::class)]
+#[ApiFilter(SearchFilter::class, properties: ['id' => 'exact', 'firstname' => 'partial', 'lastname' => 'partial'])]
 #[ApiResource(
-    normalizationContext: ['groups' => ['actor:read']],
     description: 'An actor with his nationatity.',
     operations: [
         new Get(uriTemplate: '/actor/{id}'),
@@ -29,7 +30,9 @@ use Symfony\Component\Validator\Constraints as Assert;
         new Put(),
         new Patch(),
         new Delete(),
-    ]
+        new GetCollection(uriTemplate: '/actors/all', controller: GetAllActorsController::class, openapiContext: ['summary' => 'Get all actors without pagination'], paginationEnabled: false)
+    ],
+    normalizationContext: ['groups' => ['actor:read']]
 )]
 class Actor
 {
@@ -40,25 +43,24 @@ class Actor
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['movie:read', 'actor:read'])]
+    #[Groups(['actor:read'])]
     #[Assert\NotBlank(message: 'Le prénom est obligatoire.')]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
-    private ?string $firstName = null;
+    private ?string $firstname = null;
 
-    #[Groups(['movie:read', 'actor:read'])]
+    #[Groups(['actor:read'])]
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Le nom est obligatoire.')]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
-    private ?string $lastName = null;
+    private ?string $lastname = null;
+
+    #[ORM\Column(length: 255)]
+    #[Groups(['actor:read'])]
+    private ?string $nationality = null;
 
     #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'actor')]
-    #[Groups(['actor:read'])]
+    #[Groups(['actor:read', 'actor:read:light', 'actor:read:id'])]
     private Collection $movies;
-
-    #[ORM\ManyToOne(inversedBy: 'actors')]
-    #[Groups(['actor:read'])]
-    #[Assert\NotNull(message: 'La nationalité est obligatoire.')]
-    private ?Nationalite $nationalite = null;
 
     public function __construct()
     {
@@ -70,26 +72,38 @@ class Actor
         return $this->id;
     }
 
-    public function getFirstName(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->firstName;
+        return $this->firstname;
     }
 
-    public function setFirstName(string $firstName): static
+    public function setFirstname(string $firstname): static
     {
-        $this->firstName = $firstName;
+        $this->firstname = $firstname;
 
         return $this;
     }
 
-    public function getLastName(): ?string
+    public function getLastname(): ?string
     {
-        return $this->lastName;
+        return $this->lastname;
     }
 
-    public function setLastName(string $lastName): static
+    public function setLastname(string $lastname): static
     {
-        $this->lastName = $lastName;
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getNationality(): ?string
+    {
+        return $this->nationality;
+    }
+
+    public function setNationality(string $nationality): static
+    {
+        $this->nationality = $nationality;
 
         return $this;
     }
@@ -117,18 +131,6 @@ class Actor
         if ($this->movies->removeElement($movie)) {
             $movie->removeActor($this);
         }
-
-        return $this;
-    }
-
-    public function getNationalite(): ?Nationalite
-    {
-        return $this->nationalite;
-    }
-
-    public function setNationalite(?Nationalite $nationalite): static
-    {
-        $this->nationalite = $nationalite;
 
         return $this;
     }
