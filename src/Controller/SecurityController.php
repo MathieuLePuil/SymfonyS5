@@ -20,5 +20,6 @@ class SecurityController extends AbstractController
     #[Route('/api/login_check', name: 'app_login_check')]
     public function loginCheck(#[CurrentUser] $user = null): Response
     {
+        return new Response();
     }
 }
