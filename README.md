@@ -69,7 +69,7 @@ Si ces commandes affichent les versions installées, vous pouvez continuer. Sino
     Créez la base de données en exécutant :
 
     ```bash
-    bin/console doctrine:database:create
+    php bin/console doctrine:database:create
     ```
 <br>
 
@@ -78,7 +78,7 @@ Si ces commandes affichent les versions installées, vous pouvez continuer. Sino
     Appliquez les migrations à votre base de données :
     
     ```bash
-    bin/console doctrine:schema:update --force
+    php bin/console doctrine:schema:update --force
     ```
 <br>
 
@@ -87,12 +87,19 @@ Si ces commandes affichent les versions installées, vous pouvez continuer. Sino
     Si nécessaire, chargez les données de test dans la base de données :
     
     ```bash
-    bin/console doctrine:fixtures:load
+    php bin/console doctrine:fixtures:load
+    ```
+<br>
+
+8. **Générer les clés JWT**
+    
+    ```bash
+    php bin/console lexik:jwt:generate-keypair
     ```
 <br>
 
 
-8. **Démarrer le serveur de développement**
+9. **Démarrer le serveur de développement**
 
     Lancez le serveur de développement Symfony :
     
